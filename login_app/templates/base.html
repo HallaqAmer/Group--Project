@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>GYMANAGER</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <nav class="navbar navbar-expand-lg bg-light navbar-brand container-fluid">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'login_app:home' %}">GYMANAGER</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'login_app:about' %}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'login_app:price' %}">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Contact</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'login_app:login' %}"
+                                class="btn btn-secondary btn-lg active" role="button"><i class="fa fa-lock"></i>
+                                LOGIN</a>
+                        </li>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+</head>
+</head>
+
+<body>
+
+    {% block content %}
+
+
+    <!-- Section: Design Block -->
+
+    <div class="d-flex flex-row justify-content-around">
+        <div class="p-2 mt-5 base-sec flex-grow-1 ms-5">
+            <p class="h2">Built To Make Your <br> GYM Better</p>
+            <form action="" method="post">
+            <input type="email" id="form1Example1" class="form-control" name="demo" placeholder="Email Address"/>
+            <button type="submit" class="btn btn-outline-info btn-block mt-4">Request a Demo</button>
+            </form>
+        </div>
+
+        <div  class="p-2 mt-5 flex-grow-1">
+            <section class="text-center signup-card">
+
+
+            <div class="card mx-4 mx-md-5 shadow-5-strong signup-body">
+                <div class="card-body py-2 px-md-5">
+
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-12">
+                            <h2 class="fw-bold mb-5">Sign up now</h2>
+                            <form action="#" method="post">
+                                {% csrf_token %}
+                                <!-- 2 column grid layout with text inputs for the first and last names -->
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline text-start">
+                                            <input type="text" id="form3Example1" class="form-control"
+                                                name="clubname" />
+                                            <label class="form-label" for="form3Example1">Club Name</label>
+                                        </div>
+                                        {% for message in messages %}
+                                        {% if message.extra_tags == "clubname" %}
+                                        <p class="error-message">{{ message }} </p>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline text-start">
+                                            <input type="text" id="form3Example2" class="form-control"
+                                                name="registration" />
+                                            <label class="form-label" for="form3Example2">Registration No.</label>
+                                        </div>
+                                    </div>
+                                    {% for message in messages %}
+                                    {% if message.extra_tags == "registration" %}
+                                    <p class="error-message">{{ message }} </p>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+
+                                <!-- Email input -->
+                                <div class="form-outline mb-4 text-start">
+                                    <input type="email" id="form3Example3" class="form-control" name="emailaddress" />
+                                    <label class="form-label" for="form3Example3">Email address</label>
+                                </div>
+                                {% for message in messages %}
+                                {% if message.extra_tags == "email" %}
+                                <p class="error-message">{{ message }} </p>
+                                {% endif %}
+                                {% endfor %}
+
+                                <!-- PHone Number input -->
+                                <div class="form-outline mb-4 text-start">
+                                    <input type="email" id="form3Example4" class="form-control" name="phonenumber" />
+                                    <label class="form-label" for="form3Example4">Phone Number</label>
+                                </div>
+                                {% for message in messages %}
+                                {% if message.extra_tags == "phonenumber" %}
+                                <p class="error-message">{{ message }} </p>
+                                {% endif %}
+                                {% endfor %}
+
+                                <!-- Address input -->
+                                <div class="form-outline mb-4 text-start">
+                                    <input type="email" id="form3Example5" class="form-control" name="city" />
+                                    <label class="form-label" for="form3Example5">City</label>
+                                </div>
+                                {% for message in messages %}
+                                {% if message.extra_tags == "city" %}
+                                <p class="error-message">{{ message }} </p>
+                                {% endif %}
+                                {% endfor %}
+
+                                <!-- Password input -->
+                                <div class="form-outline mb-4 text-start">
+                                    <input type="password" id="form3Example4" class="form-control" name="password" />
+                                    <label class="form-label" for="form3Example4">Password</label>
+                                </div>
+
+                                <!-- Password confirm -->
+                                <div class="form-outline mb-4 text-start">
+                                    <input type="password" id="form3Example5" class="form-control" name="confirm_pw" />
+                                    <label class="form-label" for="form3Example5">Confirm Password</label>
+                                </div>
+                                {% for message in messages %}
+                                {% if message.extra_tags == "password" %}
+                                <p class="error-message">{{ message }} </p>
+                                {% endif %}
+                                {% endfor %}
+
+                                <!-- Submit button -->
+                                <button type="submit" class="btn btn-light btn-block mb-4">
+                                    Sign up
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div>
+        
+
+    </div>
+    <!-- Section: Design Block -->
+
+
+
+    {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
