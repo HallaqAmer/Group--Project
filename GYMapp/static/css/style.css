@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.card {
+    border-radius: 1rem;
+    
+}
+
+.signup-card {
+width: fit-content;
+margin: auto;
+}
+
+.signup-body {
+
+    background: #03001C;
+    backdrop-filter: blur(30px);
+    color: white;
+    
+}
+
+.error-message {
+    color: red;
+    font-size: 1vw;
+    list-style: none;
+    text-align: start;
+}
+
+li.error {
+    list-style: none; 
+    text-align: start;
+}
+
+.profile-photo {
+    height: 10%;
+    width: 10%;
+}
+
+.base-sec {
+
+    background-image: url('../images/img-gym-1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    border-radius: 10px;
+}
+
+
